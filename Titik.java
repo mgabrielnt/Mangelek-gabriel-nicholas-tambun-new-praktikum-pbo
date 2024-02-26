@@ -1,42 +1,57 @@
 /* Program   : Titik.java */
 /* Deskripsi : Kelas yang berisi program utama yang memanfaatkan kelas titik*/
 /* NIM/Nama  : 24060122140176/Mangelek Gabriel Nicholas Tambun*/
-/* Tanggal   : 19 Februari 2024*/
+/* Tanggal   : 26 Februari 2024*/
+// Kelas Titik
+public class Titik {
+    private double absis;
+    private double ordinat;
 
-public class Titik{
-    double absis;
-    double ordinat;
-    static int counterTitik;
-
-    public Titik(){
-        absis = 0;
-        ordinat = 0;
-        counterTitik++;
+    // Konstruktor
+    public Titik(double absis, double ordinat) {
+        this.absis = absis;
+        this.ordinat = ordinat;
     }
 
-    public Titik(double x, double y){
-        this.absis = x;
-        this.ordinat = y;
-        counterTitik++;
+    // Getter dan Setter
+    public double getAbsis() {
+        return absis;
     }
 
-    void setAbsis(double x){
-        this.absis = x;
+    public void setAbsis(double absis) {
+        this.absis = absis;
     }
 
-    void setOrdinat(double y){
-        this.ordinat = y;
+    public double getOrdinat() {
+        return ordinat;
     }
 
-    double getAbsis(){
-        return this.absis;
+    public void setOrdinat(double ordinat) {
+        this.ordinat = ordinat;
     }
 
-    double getOrdinat(){
-        return this.ordinat;
+    // Method untuk menghitung jarak titik ke titik pusat (0,0)
+    public double getJarakPusat() {
+        return Math.sqrt(Math.pow(absis, 2) + Math.pow(ordinat, 2));
     }
 
-    static double getCounterTitik(){
-        return counterTitik;
+    // Method untuk melakukan pencerminan terhadap sumbu X
+    public void refleksiX() {
+        ordinat = -ordinat;
+    }
+
+    // Method untuk melakukan pencerminan terhadap sumbu Y
+    public void refleksiY() {
+        absis = -absis;
+    }
+
+    // Method untuk mendapatkan hasil pencerminan terhadap sumbu X
+    public Titik getRefleksiX() {
+        return new Titik(absis, -ordinat);
+    }
+
+    // Method untuk mendapatkan hasil pencerminan terhadap sumbu Y
+    public Titik getRefleksiY() {
+        return new Titik(-absis, ordinat);
     }
 }
